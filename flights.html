@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flights - Airplane Tracking System</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <link rel="stylesheet" type="text/css" href="public/css/style.css" />
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+</head>
+
+<body class="text-center">
+    <div class="pos-f-t">
+        <div class="collapse" id="navbarToggleExternalContent">
+            <div class="bg-dark p-4">
+                <h4 class="text-white"> <img class="logo" src="images/logo.svg" width="270" height="100" alt="My_Logo">
+                </h4>
+                <span class="text-muted">Get the information about Aviations.</span>
+            </div>
+        </div>
+        <nav class="navbar navbar-dark bg-dark">
+            <button class="navbar-toggler" type="button" data-toggle="collapse"
+                data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent"
+                aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="row">
+                <a href="/"><button class="btn btn-primary m-2"> Home</button></a>
+                <button onclick="underdevelop()" class="btn btn-light m-2" title="Search by Airlines">Airlines</button>
+                <button onclick="underdevelop()" class="btn btn-light m-2" title="Search bt Airports">Airports</button>
+                <button onclick="underdevelop()" class="btn btn-light m-2"
+                    title="Get the Type of Aircraft">Aircraft</button>
+            </div>
+    </div>
+    </nav>
+    </div><br><br>
+
+    <form action="/flights" class="form-signin" method="POST">
+        <h1 class="h3 m-auto font-weight-normal">Enter Flight ICAO</h1>
+        <!-- <input type="text" name="flights" class="form-control m-auto" placeholder="Flight ICAO Ex. IGO6532"
+            style="text-align: center; width: min-content; align-items: center" required autofocus /><br /><br> -->
+        <div class="input-effect mt-4">
+            <!-- <input class="effect-21 m-auto" name="flights" type="text" placeholder="" required autofocus>  -->
+            <input type="text" name="flights" class="form-control  effect-21 m-auto"
+                placeholder="Flight ICAO Ex. IGO6532"
+                style="text-align: center; width: min-content; align-items: center" required autofocus /><br>
+            <span class="focus-border">
+                <i></i>
+            </span>
+        </div>
+        <button class="btn btn-lg btn-dark m-auto p-auto" name="submitbtn" type="submit">
+            Search
+        </button><br><br>
+        <p class="icaohelp">Just Enter the Flights ICAO number <br> If can't find one go to <a
+                href="https://en.wikipedia.org/wiki/List_of_airline_codes" class="text-white" target="blank">Wikipedia</a></p>
+
+        <p class="m-auto text-white">By <a href="https://github.com/Manraj29" target="blank" class="text-white"> Manraj Singh Virdi</a></p>
+        <img src="images/airplane1.png" class="airplaneimg" alt="airplane">
+        <img src="images/tower.png" class="towerimg" alt="Tower">
+    </form>
+    <script>
+        function underdevelop() {
+            Swal.fire({
+                title: 'Hola!<br> This section will be soon available 😄 <br> Thank you for your patience! 🙌',
+                showClass: {
+                    popup: 'animate__animated animate__fadeInDown'
+                },
+                hideClass: {
+                    popup: 'animate__animated animate__fadeOutUp'
+                }
+            })
+        }
+    </script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

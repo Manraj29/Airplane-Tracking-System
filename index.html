@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<link rel="stylesheet" href="style.css" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Airplane Tracking System</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+	<!-- Bootstrap core CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+		integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+	<!-- Custom styles for this template -->
+	<link href="public/css/style.css" rel="stylesheet" />
+	<link href="css/style.css" rel="stylesheet" />
+	<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+	<link rel="icon" type="image/x-icon" href="images/favicon.ico">
+</head>
+
+<body>
+	<div class="container">
+		<div class="pos-f-t text-center">
+			<div class="collapse" id="navbarToggleExternalContent">
+				<div class="bg-dark p-4">
+					<h4 class="text-white"> <img class="logo" src="images/logo.svg" width="270" height="100"
+							alt="My_Logo">
+					</h4>
+					<span class="text-muted">Get the information about Aviations.</span>
+				</div>
+			</div>
+			<nav class="navbar navbar-dark bg-dark">
+				<button class="navbar-toggler" type="button" data-toggle="collapse"
+					data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent"
+					aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div>
+					<a href="/flights"><button class="btn btn-primary m-2" title="Real time Flights">
+							Flights</button></a>
+					<button onclick="underdevelop()" class="btn btn-light m-2"
+						title="Search by Airlines">Airlines</button>
+					<button onclick="underdevelop()" class="btn btn-light m-2"
+						title="Search bt Airports">Airports</button>
+					<button onclick="underdevelop()" class="btn btn-light m-2"
+						title="Get the Type of Aircraft">Aircraft</button>
+				</div>
+			</nav>
+		</div>
+
+		<div class="row">
+			<div class="col-md-3">
+
+			</div>
+			<div class="col-md-6 text-center mt-5">
+				<h2>MSVRadar</h2>
+				<h1>Get the <span id="changingText"></span></h1>
+				<h4>All the data is Refresehed within 2-3 hours.</h4>
+				<!-- Button trigger modal -->
+				<button type="button" onclick="starting()" class="btn btn-dark mt-3">
+					Get Started!
+				</button>
+
+				<button type="button" class="btn btn-dark mt-3 ml-5" data-toggle="modal"
+					data-target="#exampleModalLong">
+					Credits
+				</button>
+				<!-- Modal -->
+				<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog"
+					aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+					<div class="modal-dialog" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title" id="exampleModalLongTitle">Special Credits</h5>
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
+							</div>
+							<div class="modal-body">
+								<strong>API: </strong><a href="https://aviationstack.com/" target="blank"
+									class="text-dark">Aviation Stack</a><br>
+								<strong>Rotating Earth: </strong><a href="https://codepen.io/kashyap-roy/pen/LYLeNEO"
+									target="blank" class="text-dark">Codepen</a><br>
+								<strong>Images: </strong><a href="https://www.google.com/imghp?hl=en" target="blank"
+									class="text-dark">Google Images</a><br>
+								<strong>InputBox Effects: </strong><a href="https://codepen.io/Takumari85/pen/RaYwpJ"
+									target="blank" class="text-dark">Codepen</a><br>
+								<strong>Alerts: </strong><a href="https://sweetalert2.github.io/" target="blank"
+									class="text-dark">Sweet Alert 2</a><br>
+								<strong>Type Writer Text: </strong><a href="https://codepen.io/lukasknize/pen/ZEXzWJN"
+									class="text-dark"> Codepen</a> <br>
+								<strong>Logo Designing: </strong><a href="https://www.canva.com/" target="blank"
+									class="text-dark">Canva</a><br>
+								<strong>Advices: </strong><a style="cursor: pointer; text-decoration: underline;"
+									onclick="notinvited()" class="text-dark">Discord Skolers</a><br>
+								<strong>Thanks: </strong><a href="https://github.com/piyushchugeja"
+									class="text-dark">Piyush Chugeja </a> (for Error Handling)<br>
+
+							</div>
+							<div class="modal-footer">
+								<!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
+								<strong style="font-size: larger; text-align: center;">Designed & Developed By:
+								</strong><a href="https://github.com/Manraj29" class="text-dark">Manraj Singh
+									Virdi</a><br>
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-md-3 text-center">
+				<script type="module">
+					import * as THREE from "https://cdn.skypack.dev/three@0.132.2";
+					import { TrackballControls } from "https://cdn.skypack.dev/three@0.132.2/examples/jsm/controls/TrackballControls.js";
+					import { OBJLoader } from "https://cdn.skypack.dev/three@0.132.2/examples/jsm/loaders/OBJLoader.js";
+					import { MeshSurfaceSampler } from "https://cdn.skypack.dev/three@0.132.2/examples/jsm/math/MeshSurfaceSampler.js";
+
+					console.clear();
+					window.THREE = THREE;
+
+					const scene = new THREE.Scene();
+					const camera = new THREE.PerspectiveCamera(
+						75,
+						window.innerWidth / window.innerHeight,
+						0.1,
+						1000
+					);
+
+					const renderer = new THREE.WebGLRenderer({
+						antialias: true,
+						alpha: true,
+					});
+					renderer.setSize(window.innerWidth, window.innerHeight);
+					document.body.appendChild(renderer.domElement);
+
+					camera.position.z = 250;
+					camera.position.y = 100;
+
+					const controls = new TrackballControls(camera, renderer.domElement);
+					controls.noPan = true;
+					controls.maxDistance = 600;
+					controls.minDistance = 150;
+					controls.rotateSpeed = 2;
+
+					const group = new THREE.Group();
+					scene.add(group);
+					group.rotation.y = 2;
+
+					let subgroups = [];
+
+					let airplane = new THREE.Group();
+					new OBJLoader().load(
+						"https://assets.codepen.io/127738/Airplane_model2.obj",
+						(obj) => {
+							airplane = obj;
+							const mat = new THREE.MeshPhongMaterial({
+								emissive: 0xffffff,
+								emissiveIntensity: 0.3,
+							});
+							airplane.children.forEach((child) => {
+								child.geometry.scale(0.013, 0.013, 0.013);
+								child.geometry.translate(0, 122, 0);
+								child.material = mat;
+							});
+							let angles = [0.3, 1.3, 2.14, 2.6];
+							let speeds = [0.008, 0.01, 0.014, 0.02];
+							let rotations = [0, 2.6, 1.5, 4];
+							for (let i = 0; i < 4; i++) {
+								const g = new THREE.Group();
+								g.speed = speeds[i];
+								subgroups.push(g);
+								group.add(g);
+								const g2 = new THREE.Group();
+								let _airplane = airplane.clone();
+								g.add(g2);
+								g2.add(_airplane);
+								g2.rotation.x = rotations[i];
+								g.rotation.y = angles[i];
+								// Reverse airplane rotation
+								g.reverse = i < 2;
+								if (i < 2) {
+									_airplane.children[0].geometry =
+										airplane.children[0].geometry.clone().rotateY(Math.PI);
+								}
+							}
+						}
+					);
+
+					let sampler = [];
+					let earth = null;
+					let paths = [];
+					new OBJLoader().load(
+						"https://assets.codepen.io/127738/NOVELO_EARTH.obj",
+						(obj) => {
+							earth = obj.children[0];
+							earth.geometry.scale(0.35, 0.35, 0.35);
+							earth.geometry.translate(0, -133, 0);
+
+							/* Split earth into two geometries */
+							let positions = Array.from(
+								earth.geometry.attributes.position.array
+							).splice(0, 3960 * 3);
+							const landGeom = new THREE.BufferGeometry();
+							landGeom.setAttribute(
+								"position",
+								new THREE.Float32BufferAttribute(positions, 3)
+							);
+							const land = new THREE.Mesh(landGeom);
+
+							positions = Array.from(
+								earth.geometry.attributes.position.array
+							).splice(3960 * 3, 540 * 3);
+							const waterGeom = new THREE.BufferGeometry();
+							waterGeom.setAttribute(
+								"position",
+								new THREE.Float32BufferAttribute(positions, 3)
+							);
+							waterGeom.computeVertexNormals();
+							const waterMat = new THREE.MeshLambertMaterial({
+								color: 0x0da9c3,
+								transparent: true,
+								opacity: 1,
+							});
+							const water = new THREE.Mesh(waterGeom, waterMat);
+							group.add(water);
+
+							const light = new THREE.HemisphereLight(0xccffff, 0x000033, 1);
+							scene.add(light);
+							console.log(scene);
+
+							sampler = new MeshSurfaceSampler(land).build();
+
+							for (let i = 0; i < 24; i++) {
+								const path = new Path();
+								paths.push(path);
+								group.add(path.line);
+							}
+
+							renderer.setAnimationLoop(render);
+						},
+						(xhr) => console.log((xhr.loaded / xhr.total) * 100 + "% loaded"),
+						(err) => console.error(err)
+					);
+
+					const tempPosition = new THREE.Vector3();
+					const lineMaterial = new THREE.LineBasicMaterial({
+						color: 0xbbde2d,
+						transparent: true,
+						opacity: 0.6,
+					});
+					class Path {
+						constructor() {
+							this.geometry = new THREE.BufferGeometry();
+							this.line = new THREE.Line(this.geometry, lineMaterial);
+							this.vertices = [];
+
+							sampler.sample(tempPosition);
+							this.previousPoint = tempPosition.clone();
+						}
+						update() {
+							let pointFound = false;
+							while (!pointFound) {
+								sampler.sample(tempPosition);
+								if (tempPosition.distanceTo(this.previousPoint) < 12) {
+									this.vertices.push(
+										tempPosition.x,
+										tempPosition.y,
+										tempPosition.z
+									);
+									this.previousPoint = tempPosition.clone();
+									pointFound = true;
+								}
+							}
+							this.geometry.setAttribute(
+								"position",
+								new THREE.Float32BufferAttribute(this.vertices, 3)
+							);
+						}
+					}
+
+					const look = new THREE.Vector3(0, 0, 0);
+					function render(a) {
+						// Rotate the whole scene
+						group.rotation.y += 0.001;
+
+						// Rotate each plane
+						subgroups.forEach((g) => {
+							g.children[0].rotation.x += g.speed * (g.reverse ? -1 : 1);
+						});
+
+						// Update each path
+						paths.forEach((path) => {
+							if (path.vertices.length < 35000) {
+								path.update();
+							}
+						});
+
+						controls.update();
+						renderer.render(scene, camera);
+					}
+
+					window.addEventListener("resize", onWindowResize, false);
+
+					function onWindowResize() {
+						camera.aspect = window.innerWidth / window.innerHeight;
+						camera.updateProjectionMatrix();
+						renderer.setSize(window.innerWidth, window.innerHeight);
+					}
+				</script>
+			</div>
+		</div>
+	</div>
+
+	<script>
+		function notinvited() {
+			Swal.fire({
+				title: 'Sorry!<br> Only Skolers are Invited in the Server XD! 😂😉',
+				icon: 'warning'
+			})
+		}
+		function underdevelop() {
+			Swal.fire({
+				title: 'Hola!<br> This section will be soon available 😄 <br> Thank you for your patience! 🙌',
+				showClass: {
+					popup: 'animate__animated animate__fadeInDown'
+				},
+				hideClass: {
+					popup: 'animate__animated animate__fadeOutUp'
+				}
+			})
+		}
+		function starting() {
+			Swal.fire({
+				title: 'hello!<br>Nothing to display here 😄 <br> Thank you! 🙌 <br style="font-size: large;"> You can Start from <a href= "/flights">Flights</a> for now',
+				showClass: {
+					popup: 'animate__animated animate__fadeInDown'
+				},
+				hideClass: {
+					popup: 'animate__animated animate__fadeOutUp'
+				}
+			})
+		}
+		//you can change the text, but you need to keep same format [yourtext, color];
+		let yourtext = [
+			["Real Time Aviation Details.", "#fcfadb"],
+			["Real Time Aviation Details.", "#e5ece6"],
+			["Real Time Aviation Details.", "#ffde59"],
+		];
+
+		let x = 0;
+		let y = 0;
+		//how fast typing is
+		let wait = 200;
+		//how long you want to text stay before overwriting
+		let additionalwait = 5;
+		let txt = yourtext[0][0].split("");
+		let out = "";
+		let retyping = setInterval(function () {
+			document.getElementById("changingText").innerHTML = out;
+			if (x > txt.length - 1) {
+			} else {
+				out += txt[x];
+			}
+			x++;
+			if (x == txt.length + 2 + additionalwait) {
+				if (y == yourtext.length - 1) {
+					y = 0;
+					txt = yourtext[y][0].split("");
+					out = "";
+					document.getElementById("changingText").innerHTML = out;
+					document.getElementById("changingText").style.color =
+						yourtext[y][1];
+					x = 0;
+				} else {
+					y += 1;
+					txt = yourtext[y][0].split("");
+					out = "";
+					document.getElementById("changingText").innerHTML = out;
+					document.getElementById("changingText").style.color =
+						yourtext[y][1];
+					x = 0;
+				}
+			}
+		}, wait);
+	</script>
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+		integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+		crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+		integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+		crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+		integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+		crossorigin="anonymous"></script>
+	<script src="sweetalert2.all.min.js"></script>
+</body>
+
+</html>

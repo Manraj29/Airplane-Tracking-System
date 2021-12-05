@@ -1,0 +1,155 @@
+.body {
+	overflow-x: hidden;
+}
+.row {
+	margin: 0 !important;
+}
+.container {
+	padding: 0px !important;
+	max-width: inherit !important;
+}
+body {
+	margin: 0;
+	overflow: hidden;
+	background: radial-gradient(
+		circle,
+		rgb(3, 155, 229) 20%,
+		rgb(1, 51, 75) 120%
+	);
+}
+canvas {
+	margin-top: -80px;
+}
+
+.airplaneimg {
+	transform: rotate(112deg);
+	width: 100;
+	height: 200px;
+	margin-right: -890px;
+	margin-top: -600px;
+}
+.towerimg {
+	margin-left: -200px;
+	margin-top: -100px;
+}
+@media screen and (max-width: 380px) {
+	.airplaneimg {
+		transform: rotate(112deg);
+		width: 100;
+		height: 70px;
+		margin-right: -160px;
+		margin-top: -580px;
+	}
+	.towerimg {
+		margin-left: -200px;
+		margin-top: -40px;
+	}
+}
+
+@media screen and (min-width: 420px) {
+	.airplaneimg {
+		transform: rotate(112deg);
+		width: 100;
+		height: 80px;
+		margin-right: -190px;
+		margin-top: -580px;
+	}
+	.towerimg {
+		margin-left: -250px;
+		margin-top: -20px;
+	}
+}
+
+@media screen and (min-width: 1220px) {
+	.airplaneimg {
+		transform: rotate(112deg);
+		width: 100;
+		height: 200px;
+		margin-right: -890px;
+		margin-top: -600px;
+	}
+	.towerimg {
+		margin-left: -200px;
+		margin-top: -100px;
+	}
+}
+
+/* flights page */
+.effect-21 ~ .focus-border:before,
+.effect-21 ~ .focus-border:after {
+	content: "";
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 0;
+	height: 2px;
+	background-color: #3399ff;
+	transition: 0.2s;
+	transition-delay: 0.2s;
+}
+.effect-21 ~ .focus-border:after {
+	top: auto;
+	bottom: 0;
+	right: auto;
+	left: 0;
+	transition-delay: 0.6s;
+}
+.effect-21 ~ .focus-border i:before,
+.effect-21 ~ .focus-border i:after {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 2px;
+	height: 0;
+	background-color: #3399ff;
+	transition: 0.2s;
+}
+.effect-21 ~ .focus-border i:after {
+	left: auto;
+	right: 0;
+	top: auto;
+	bottom: 0;
+	transition-delay: 0.4s;
+}
+.effect-21:focus ~ .focus-border:before,
+.effect-21:focus ~ .focus-border:after,
+.has-content.effect-21 ~ .focus-border:before,
+.has-content.effect-21 ~ .focus-border:after {
+	width: 100%;
+	transition: 0.2s;
+	transition-delay: 0.6s;
+}
+.effect-21:focus ~ .focus-border:after,
+.has-content.effect-21 ~ .focus-border:after {
+	transition-delay: 0.2s;
+}
+.effect-21:focus ~ .focus-border i:before,
+.effect-21:focus ~ .focus-border i:after,
+.has-content.effect-21 ~ .focus-border i:before,
+.has-content.effect-21 ~ .focus-border i:after {
+	height: 100%;
+	transition: 0.2s;
+}
+.effect-21:focus ~ .focus-border i:after,
+.has-conten.effect-21 ~ .focus-border i:after {
+	transition-delay: 0.4s;
+}
+.effect-21 ~ label {
+	position: absolute;
+	left: 14px;
+	width: 100%;
+	top: 10px;
+	color: #aaa;
+	transition: 0.3s;
+	z-index: -1;
+	letter-spacing: 0.5px;
+}
+.effect-21:focus ~ label,
+.has-content.effect-21 ~ label {
+	top: -18px;
+	left: 0;
+	font-size: 12px;
+	color: #3399ff;
+	transition: 0.3s;
+}
